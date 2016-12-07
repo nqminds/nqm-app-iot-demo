@@ -18,3 +18,4 @@ shell-server@0.2.1            # Server-side component of the `meteor shell` comm
 
 http@1.2.10
 static-html
+practicalmeteor:mocha
