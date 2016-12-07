@@ -27,7 +27,7 @@ const AppSideBar = () => {
         <SideBarPanel
           key={val.value + valRoutes}
           title={val.title}
-          value={val.value + valRoutes}
+          value={val.value}
           icon={val.icon}
           route={valRoutes}
         >
