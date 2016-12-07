@@ -1,6 +1,6 @@
 {
   "public": {
-    "appTitle": "nqm app mantra",
+    "appTitle": "nqm iot demo",
     "ddpServerURL": "https://tbx.nq-m.com/",
     "authServerURL": "https://tdx.nq-m.com",
     "commandHost": "https://cmd.nq-m.com",
