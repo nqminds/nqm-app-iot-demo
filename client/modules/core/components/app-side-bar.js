@@ -14,7 +14,7 @@ const AppSideBar = () => {
   const sidebarPanelComponent = _.map(homeMenuElements, (val) => {
     return (
       <SideBarPanel
-        key={val.value}
+        key={val.title}
         title={val.title}
         value={val.value}
         icon={val.icon}
@@ -24,17 +24,21 @@ const AppSideBar = () => {
       </SideBarPanel>);
   });
 
+  sidebarPanelComponent.unshift(
+    <SideBarPanel
+      key={"menu"}
+      title="menu"
+      value="menu"
+      icon="apps"
+    >
+      <HomeMenu />
+    </SideBarPanel>
+  );
+
   return (
     <SideBarContent>
-      <SideBarPanel
-        title="menu"
-        value="menu"
-        icon="apps"
-      >
-        <HomeMenu />
-      </SideBarPanel>
-    </SideBarContent>
-  );
+      {sidebarPanelComponent}
+    </SideBarContent>);
 };
 
 export default AppSideBar;

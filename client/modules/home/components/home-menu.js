@@ -3,7 +3,6 @@ import injectSheet from "react-jss";
 import _ from "lodash";
 
 import {List, ListItem} from "material-ui/List";
-import Divider from "material-ui/Divider";
 import FontIcon from "material-ui/FontIcon";
 import * as ColorManipulator from "material-ui/utils/colorManipulator";
 import homeMenuElements from "./home-menu-elements";
@@ -19,25 +18,6 @@ const styles = {
 };
 
 class HomeMenu extends React.Component {
-  static menuData = [
-    {
-      text: "Home",
-      icon: "home",
-      route: "/",
-    },
-    {
-      text: "Map",
-      icon: "map",
-      route: "/map",
-    },
-    {
-    },
-    {
-      text: "Modal",
-      icon: "help",
-      route: "/modal",
-    },
-  ];
   static propTypes = {
     setSidebarFloating: React.PropTypes.func,
     sheet: React.PropTypes.object,
