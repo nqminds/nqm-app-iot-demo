@@ -1,6 +1,6 @@
 import React from "react";
 
-import MapMenu from "../../map/containers/map-menu";
+import BusList from "../../buses/containers/bus-list";
 import MapDetailOverview from "../../map/components/map-detail-overview";
 import MapDetailSchools from "../../map/components/map-detail-schools";
 import MapDetailHousing from "../../map/components/map-detail-housing";
@@ -10,7 +10,7 @@ const homeMenuElements = [{
   title: "Buses",
   value: "menuBuses",
   icon: "directions_bus",
-  content: <MapMenu />,
+  content: <BusList />,
 }, {
   route: "/traffic",
   title: "Traffic",
