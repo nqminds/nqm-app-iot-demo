@@ -1,11 +1,14 @@
+import * as _ from "lodash";
 import {
   CLICK_BUS,
   SELECT_BUS,
+  SET_BUS_METADATA,
 } from "../actions/action-types";
 
 const defaultState = {
   currentBusID: 0,
   selectBusList: {},
+  busMetadata: {},
 };
 
 export function bus(state = defaultState, action) {
@@ -19,8 +22,14 @@ export function bus(state = defaultState, action) {
         selectBusList[action.id] = true;
       else
         selectBusList[action.id] = !selectBusList[action.id];
-
+      
       return {...state, selectBusList: selectBusList};
+    case SET_BUS_METADATA:
+      const busMetadata = {};
+      _.forEach(action.metadata, (val) => {
+        busMetadata[val.ID] = val;
+      });
+      return {...state, busMetadata: busMetadata};
     default:
       return state;
   }

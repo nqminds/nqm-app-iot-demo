@@ -6,7 +6,7 @@ import {syncHistoryWithStore} from "react-router-redux";
 
 // Application pages
 import Home from "../home/components/home";
-import LeafletMap from "../map/containers/leaflet-map";
+import BusMap from "../buses/containers/bus-map";
 
 // Application sidebar
 import AppSideBar from "./components/app-side-bar";
@@ -22,19 +22,19 @@ export default function(injectDeps, context, actions) {   // eslint-disable-line
   const RouterCtx = () => (
     <Router history={history}>
       <Route path="/" title="home" component={Layout}>
-        <IndexRoute components={{content: LeafletMap, sideBarContent: AppSideBar}} />
-      </Route>
-      <Route path="/buses" title="Buses" component={Layout}>
         <IndexRoute components={{content: Home, sideBarContent: AppSideBar}} />
       </Route>
+      <Route path="/buses" title="Buses" component={Layout}>
+        <IndexRoute components={{content: BusMap, sideBarContent: AppSideBar}} />
+      </Route>
       <Route path="/traffic" title="Traffic" component={Layout}>
-        <IndexRoute components={{content: LeafletMap, sideBarContent: AppSideBar}} />
+        <IndexRoute components={{content: BusMap, sideBarContent: AppSideBar}} />
       </Route>
       <Route path="/parking" title="Parking" component={Layout}>
         <IndexRoute components={{content: Home, sideBarContent: AppSideBar}} />
       </Route>
       <Route path="/air" title="Air" component={Layout}>
-        <IndexRoute components={{content: LeafletMap, sideBarContent: AppSideBar}} />
+        <IndexRoute components={{content: BusMap, sideBarContent: AppSideBar}} />
       </Route>
       <Route path="*" component={NotFound} />
     </Router>

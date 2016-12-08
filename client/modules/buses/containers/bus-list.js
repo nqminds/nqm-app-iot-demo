@@ -4,12 +4,16 @@ import {dataLoader} from "nqm-app-framework";
 export const dataMapper = ({
   Meteor,
   connectionManager,
+  setBusMetadata,
 }, onData) => {
   connectionManager.tdxApi.getDatasetData(Meteor.settings.public.busTable, null, null, null, (err, data) => {
     if (err)
       onData(err, {data: []});
-    else
+    else {
+      if (data.data.length)
+        setBusMetadata(data.data);
       onData(null, {data: data.data});
+    }
   });
 };
 
@@ -24,6 +28,7 @@ export const depsMapper = (context, actions) => ({
   connectionManager: context.connectionManager,
   clickBus: actions.bus.clickBus,
   selectBus: actions.bus.selectBus,
+  setBusMetadata: actions.bus.setBusMetadata,
 });
 
 export default dataLoader.merge(
