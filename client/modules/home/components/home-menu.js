@@ -6,6 +6,7 @@ import {List, ListItem} from "material-ui/List";
 import Divider from "material-ui/Divider";
 import FontIcon from "material-ui/FontIcon";
 import * as ColorManipulator from "material-ui/utils/colorManipulator";
+import homeMenuElements from "./home-menu-elements";
 
 const styles = {
   list: {
@@ -58,22 +59,18 @@ class HomeMenu extends React.Component {
       },
     };
 
-    const menuItems = _.map(HomeMenu.menuData, (itemData, idx) => {
-      if (itemData.text) {
-        const active = this.context.router.isActive(itemData.route);
-        const itemStyle = active ? dynamicStyles.activeItemStyle : styles.itemStyle;
-        return (
-          <ListItem
-            innerDivStyle={itemStyle}
-            key={idx}
-            primaryText={itemData.text}
-            rightIcon={<FontIcon className="material-icons">{itemData.icon}</FontIcon>}
-            onTouchTap={this.handleMenuItem.bind(this, itemData.route)}
-          />
-        );
-      } else {
-        return <Divider key={idx} />;
-      }
+    const menuItems = _.map(homeMenuElements, (itemData) => {
+      const active = this.context.router.isActive(itemData.route);
+      const itemStyle = active ? dynamicStyles.activeItemStyle : styles.itemStyle;
+      return (
+        <ListItem
+          innerDivStyle={itemStyle}
+          key={itemData.value}
+          primaryText={itemData.title}
+          rightIcon={<FontIcon className="material-icons">{itemData.icon}</FontIcon>}
+          onTouchTap={this.handleMenuItem.bind(this, itemData.route)}
+        />
+      );
     });
 
     const content = (
