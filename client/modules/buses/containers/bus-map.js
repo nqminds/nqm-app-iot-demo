@@ -39,6 +39,7 @@ export const dataMapper = ({
 export const stateMapper = (state) => ({
   busMetadata: state.bus.busMetadata,
   selectBusList: state.bus.selectBusList,
+  currentBusID: state.bus.currentBusID,
 });
 
 export const depsMapper = (context, actions) => ({

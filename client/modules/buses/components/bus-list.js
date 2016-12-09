@@ -73,7 +73,6 @@ class BusList extends React.Component {
 
     return (
       <List style={styles.list}>
-        <Subheader>Available Buses</Subheader>
         {list}
       </List>
     );
