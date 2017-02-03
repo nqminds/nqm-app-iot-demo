@@ -5,8 +5,8 @@ import framework from "nqm-app-framework";
 import {syncHistoryWithStore} from "react-router-redux";
 
 // Application pages
-import Home from "../home/components/home";
 import BusMap from "../buses/containers/bus-map";
+import ParkingMap from "../parking/containers/parking-map";
 
 // Application sidebar
 import AppSideBar from "./components/app-side-bar";
@@ -31,7 +31,7 @@ export default function(injectDeps, context, actions) {   // eslint-disable-line
         <IndexRoute components={{content: BusMap, sideBarContent: AppSideBar}} />
       </Route>
       <Route path="/parking" title="Parking" component={Layout}>
-        <IndexRoute components={{content: Home, sideBarContent: AppSideBar}} />
+        <IndexRoute components={{content: ParkingMap, sideBarContent: AppSideBar}} />
       </Route>
       <Route path="/air" title="Air" component={Layout}>
         <IndexRoute components={{content: BusMap, sideBarContent: AppSideBar}} />

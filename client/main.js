@@ -9,6 +9,7 @@ import frameworkModule from "nqm-app-framework/modules/core";
 import coreModule from "./modules/core";
 import homeModule from "./modules/home";
 import busModule from "./modules/buses";
+import parkingModule from "./modules/parking";
 import mapModule from "./modules/map";
 
 // reducers
@@ -16,6 +17,7 @@ const reducer = combineReducers({
   ...frameworkModule.reducers,
   ...coreModule.reducers,
   ...busModule.reducers,
+  ...parkingModule.reducers,
   ...mapModule.reducers,
   routing: routerReducer,
 });
@@ -31,6 +33,7 @@ app.loadModule(frameworkModule);
 app.loadModule(coreModule);
 app.loadModule(homeModule);
 app.loadModule(busModule);
+app.loadModule(parkingModule);
 app.loadModule(mapModule);
 
 // go

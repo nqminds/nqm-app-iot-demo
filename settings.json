@@ -8,7 +8,10 @@
     "mapUsername": "nqmivan.12id4bh0",
     "mapPassword": "pk.eyJ1IjoibnFtaXZhbiIsImEiOiJjaXJsendoMHMwMDM3aGtuaGh2bWt5OXRvIn0.6iCk2i96NUucsyDlbnVtiA",
 		"busTable": "S1xVSpWHR",
-		"gpsTable":"Hkgur7zKC",
-		"gpsTableLatest":"Hyx0U2PGJl"
+		"gpsTable": "Hkgur7zKC",
+		"gpsTableLatest": "Hyx0U2PGJl",
+    "parkingTable": "rJlTphTNyg",
+    "parkingTableLatest": "rJg-KXco1x",
+    "parkingMetadata": "Sylbgv671l"
   }
 }
