@@ -32,7 +32,7 @@ const dataMapper = ({
 
 // Retrieve the metadata for parking
 const getParkingMetadata = ({Meteor, connectionManager, setParkingMetadata}, onData) => {
-  const resourceId = Meteor.settings.public.parkingTableLatest;
+  const resourceId = Meteor.settings.public.parkingMetadata;
 
   connectionManager.tdxApi.getDatasetData(resourceId, null, null, null, (err, data) => {
     if (err)
@@ -56,6 +56,7 @@ export const depsMapper = (context, actions) => ({
   connectionManager: context.connectionManager,
   constants: context.constants,
   setParkingMetadata: actions.parking.setParkingMetadata,
+  clickMarker: actions.parking.clickMarker,
 });
 
 export default dataLoader.merge(

@@ -1,11 +1,14 @@
 import * as _ from "lodash";
 import {
   SET_PARKING_METADATA,
+  CLICK_MARKER,
+  SET_MARKERS,
 } from "../actions/action-types";
 
 const defaultState = {
   parkingMetadata: {},
   currentParkingID: 0,
+  markers: [],
 };
 
 export function parking(state = defaultState, action) {
@@ -13,9 +16,13 @@ export function parking(state = defaultState, action) {
     case SET_PARKING_METADATA:
       const parkingMetadata = {};
       _.forEach(action.metadata, (val) => {
-        parkingMetadata[val.ID] = val;
+        parkingMetadata[val.LotCode] = val;
       });
       return {...state, parkingMetadata: parkingMetadata};
+    case SET_MARKERS:
+      return {...state, markers: action.markers};
+    case CLICK_MARKER:
+      return {...state};
     default:
       return state;
   }
