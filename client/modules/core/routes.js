@@ -22,7 +22,7 @@ export default function(injectDeps, context, actions) {   // eslint-disable-line
   const RouterCtx = () => (
     <Router history={history}>
       <Route path="/" title="home" component={Layout}>
-        <IndexRoute components={{content: Home, sideBarContent: AppSideBar}} />
+        <IndexRoute components={{content: BusMap, sideBarContent: AppSideBar}} />
       </Route>
       <Route path="/buses" title="Buses" component={Layout}>
         <IndexRoute components={{content: BusMap, sideBarContent: AppSideBar}} />
