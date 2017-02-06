@@ -8,5 +8,8 @@ export default {
     clickMarker({store}, id) {
       store.dispatch(reduxActions.clickMarker(id));
     },
+    clickList({store}, id) {
+      store.dispatch(reduxActions.clickList(id));
+    },
   },
 };

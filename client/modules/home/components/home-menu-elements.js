@@ -1,6 +1,7 @@
 import React from "react";
 
 import BusList from "../../buses/containers/bus-list";
+import ParkingList from "../../parking/containers/parking-list";
 import MapDetailOverview from "../../map/components/map-detail-overview";
 import MapDetailSchools from "../../map/components/map-detail-schools";
 import MapDetailHousing from "../../map/components/map-detail-housing";
@@ -22,7 +23,7 @@ const homeMenuElements = [{
   title: "Parking",
   value: "menuParking",
   icon: "local_parking",
-  content: <MapDetailSchools showClose={true} />,
+  content: <ParkingList />,
 }, {
   route: "/air",
   title: "Air",

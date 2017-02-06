@@ -2,13 +2,12 @@ import * as _ from "lodash";
 import {
   SET_PARKING_METADATA,
   CLICK_MARKER,
-  SET_MARKERS,
+  CLICK_LIST,
 } from "../actions/action-types";
 
 const defaultState = {
   parkingMetadata: {},
   currentParkingID: 0,
-  markers: [],
 };
 
 export function parking(state = defaultState, action) {
@@ -21,6 +20,8 @@ export function parking(state = defaultState, action) {
       return {...state, parkingMetadata: parkingMetadata};
     case CLICK_MARKER:
       return {...state};
+    case CLICK_LIST:
+      return {...state, currentParkingID: action.id};
     default:
       return state;
   }

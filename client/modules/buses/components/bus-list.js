@@ -2,7 +2,6 @@ import React from "react";
 import IconButton from "material-ui/IconButton";
 import FontIcon from "material-ui/FontIcon";
 import {List, ListItem} from "material-ui/List";
-import Subheader from "material-ui/Subheader";
 import * as ColorManipulator from "material-ui/utils/colorManipulator";
 import * as _ from "lodash";
 
