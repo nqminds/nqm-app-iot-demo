@@ -7,7 +7,3 @@ export const setParkingMetadata = function(metadata) {
 export const clickMarker = function(id) {
   return {type: actionTypes.CLICK_MARKER, id};
 };
-
-export const setMarkers = function(markers) {
-  return {type: actionTypes.SET_MARKERS, markers};
-};

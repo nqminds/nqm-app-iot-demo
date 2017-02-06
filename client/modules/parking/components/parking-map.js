@@ -1,6 +1,5 @@
 import React from "react";
-import {Map, TileLayer, Marker, Popup} from "react-leaflet";
-import * as _ from "lodash";
+import {Map, TileLayer} from "react-leaflet";
 import MarkerCluster from "./marker-cluster";
 
 const MK_COORDINATES = [52.0295016, -0.7766588];

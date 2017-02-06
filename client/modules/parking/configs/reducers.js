@@ -19,8 +19,6 @@ export function parking(state = defaultState, action) {
         parkingMetadata[val.LotCode] = val;
       });
       return {...state, parkingMetadata: parkingMetadata};
-    case SET_MARKERS:
-      return {...state, markers: action.markers};
     case CLICK_MARKER:
       return {...state};
     default:

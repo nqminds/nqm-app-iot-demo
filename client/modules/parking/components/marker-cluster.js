@@ -9,7 +9,7 @@ class MarkerCluster extends MapLayer {
   constructor(props) {
     super(props);
 
-    this._markers = {};
+    this.markers = {};
   }
 
   componentWillMount() {
@@ -19,7 +19,8 @@ class MarkerCluster extends MapLayer {
 
     if (!_.isEmpty(this.props.parkingMetadata)) {
       markers = _.map(this.props.parkingMetadata, (val, key) => {
-        this._markers[Number(val.LotCode)] = L.marker(new L.LatLng(val.Latitude, val.Longitude), {
+        // The index of the markers array starts from 1
+        this.markers[Number(val.LotCode)] = L.marker(new L.LatLng(val.Latitude, val.Longitude), {
           title: val.Street,
           icon: new L.TextIcon({
             text: val.BayCount.toString(),
@@ -28,16 +29,15 @@ class MarkerCluster extends MapLayer {
           }),
         });
 
-        this._markers[Number(val.LotCode)].bindPopup(
+        this.markers[Number(val.LotCode)].bindPopup(
                     `<b>Street name: </b>${val.Street}<br>` +
                     `<b>Bay type: </b>${val.BayType}<br>` +
                     `<b>Tarrif code:</b>${val.TariffCode}<br>` +
                     `<b>Bay count:</b>${val.BayCount}`).on("click", (event) => {
                       self.props.handleClickMarker(event.target.options.icon.options.id) ;
                     });
-        return this._markers[Number(val.LotCode)];
+        return this.markers[Number(val.LotCode)];
       });
-      console.log(markers);
       this.leafletElement.addLayers(markers);
     }
   }
@@ -45,8 +45,8 @@ class MarkerCluster extends MapLayer {
   componentWillReceiveProps(nextProps) {
     _.forEach(nextProps.data, (val) => {
       const color = Number(val.currentvalue) ? "blue" : "red";
-      this._markers[Number(val.ID)].options.icon.setColor(color);
-      this._markers[Number(val.ID)].options.icon.setText(val.currentvalue.toString());
+      this.markers[Number(val.ID)].options.icon.setColor(color);
+      this.markers[Number(val.ID)].options.icon.setText(val.currentvalue.toString());
     });
   }
 

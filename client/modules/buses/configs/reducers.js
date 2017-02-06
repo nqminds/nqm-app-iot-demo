@@ -22,7 +22,7 @@ export function bus(state = defaultState, action) {
         selectBusList[action.id] = true;
       else
         selectBusList[action.id] = !selectBusList[action.id];
-      
+
       return {...state, selectBusList: selectBusList};
     case SET_BUS_METADATA:
       const busMetadata = {};

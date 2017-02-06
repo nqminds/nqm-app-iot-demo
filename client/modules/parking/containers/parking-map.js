@@ -23,10 +23,10 @@ const dataMapper = ({
     filter._d = resourceId;
 
     // Fetch the data from the local cache.
-    // const datasetData = connectionManager.datasetDataCollection.find(filter, {}).fetch();
+    const datasetData = connectionManager.datasetDataCollection.find(filter, {}).fetch();
 
     // Pass the data on to the component via the data property.
-    onData(null, {data: []});
+    onData(null, {data: datasetData});
   }
 };
 
@@ -61,7 +61,7 @@ export const depsMapper = (context, actions) => ({
 
 export default dataLoader.merge(
   dataLoader.compose(getParkingMetadata),
-  dataLoader.compose(dataLoader.trackerFactory(dataMapper), {propsToWatch: ["selectBusList"]}),
+  dataLoader.compose(dataLoader.trackerFactory(dataMapper)),
   dataLoader.compose(dataLoader.reduxFactory(stateMapper)),
   dataLoader.useDeps(depsMapper)
 )(ParkingMap);
