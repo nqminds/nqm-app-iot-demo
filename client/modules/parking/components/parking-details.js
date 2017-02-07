@@ -1,7 +1,7 @@
 import React from "react";
 import framework from "nqm-app-framework";
 
-import ParkingStats from "./parking-stats";
+import ParkingOverview from "./parking-overview";
 
 const StickyDetails = framework.ui.StickyDetails;
 const StickyDetail = framework.ui.StickyDetail;
@@ -14,11 +14,18 @@ const ParkingDetails = ({activeDetail, showDetail, topOffset}) => (
     stickyTop={topOffset}
   >
     <StickyDetail
-      title="Statistics"
+      title="Overview"
       icon="subject"
+      value="overview"
+    >
+      <ParkingOverview />
+    </StickyDetail>
+    <StickyDetail
+      title="Statistics"
+      icon="equalizer"
       value="statistics"
     >
-      <ParkingStats />
+      <ParkingOverview />
     </StickyDetail>
   </StickyDetails>
 );

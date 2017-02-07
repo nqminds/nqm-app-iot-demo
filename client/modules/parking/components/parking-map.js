@@ -35,7 +35,7 @@ const ParkingMap = ({parkingMetadata, data, clickMarker, style, currentParkingID
     </Map>
   );
 
-  if (currentParkingID) {
+  if (activeDetail) {
     const detailStyles = {
       content: {
         // In detail mode, only use the left and top layout values, not the positioning (to support scrolling).

@@ -15,3 +15,7 @@ export const clickList = function(id) {
 export const showDetail = function(detail) {
   return {type: actionTypes.SHOW_DETAIL, detail};
 };
+
+export const setMarkerData = function(data) {
+  return {type: actionTypes.SET_MARKER_DATA, data};
+};

@@ -4,13 +4,25 @@ import {
   CLICK_MARKER,
   CLICK_LIST,
   SHOW_DETAIL,
+  SET_MARKER_DATA,
 } from "../actions/action-types";
 
 const defaultState = {
   parkingMetadata: {},
   currentParkingID: 0,
   activeDetail: "",
+  markeData: {},
 };
+
+// Trigger the stats view
+function getActiveDetail(detail) {
+  detail = detail || "";
+
+  if (detail.length)
+    return detail;
+  else
+    return "overview";
+}
 
 export function parking(state = defaultState, action) {
   switch (action.type) {
@@ -21,11 +33,17 @@ export function parking(state = defaultState, action) {
       });
       return {...state, parkingMetadata: parkingMetadata};
     case CLICK_MARKER:
-      return {...state};
+      return {...state, currentParkingID: action.id, activeDetail: getActiveDetail(state.activeDetail)};
     case CLICK_LIST:
-      return {...state, currentParkingID: action.id};
+      return {...state, currentParkingID: action.id, activeDetail: getActiveDetail(state.activeDetail)};
     case SHOW_DETAIL:
       return {...state, activeDetail: action.detail};
+    case SET_MARKER_DATA:
+      const markerData = _.clone(state.markeData);
+      _.forEach(action.data, (val) => {
+        markerData[val.ID] = val.currentvalue;
+      });
+      return {...state, markerData: markerData};
     default:
       return state;
   }

@@ -5,6 +5,7 @@ import * as _ from "lodash";
 const dataMapper = ({
   Meteor,
   connectionManager,
+  setMarkerData,
 }, onData) => {
   const resourceId = Meteor.settings.public.parkingTableLatest;
   const filter = {};
@@ -24,6 +25,9 @@ const dataMapper = ({
 
     // Fetch the data from the local cache.
     const datasetData = connectionManager.datasetDataCollection.find(filter, {}).fetch();
+
+    // Store the marker real-time data
+    setMarkerData(datasetData);
 
     // Pass the data on to the component via the data property.
     onData(null, {data: datasetData});
@@ -59,6 +63,7 @@ export const depsMapper = (context, actions) => ({
   setParkingMetadata: actions.parking.setParkingMetadata,
   clickMarker: actions.parking.clickMarker,
   showDetail: actions.parking.showDetail,
+  setMarkerData: actions.parking.setMarkerData,
 });
 
 export default dataLoader.merge(

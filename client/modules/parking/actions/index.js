@@ -17,5 +17,9 @@ export default {
     showDetail({store}, detail) {
       store.dispatch(reduxActions.showDetail(detail));
     },
+
+    setMarkerData({store}, data) {
+      store.dispatch(reduxActions.setMarkerData(data));
+    },
   },
 };
