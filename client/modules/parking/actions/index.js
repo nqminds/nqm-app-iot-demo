@@ -5,11 +5,17 @@ export default {
     setParkingMetadata({store}, metadata) {
       store.dispatch(reduxActions.setParkingMetadata(metadata));
     },
+
     clickMarker({store}, id) {
       store.dispatch(reduxActions.clickMarker(id));
     },
+
     clickList({store}, id) {
       store.dispatch(reduxActions.clickList(id));
+    },
+
+    showDetail({store}, detail) {
+      store.dispatch(reduxActions.showDetail(detail));
     },
   },
 };

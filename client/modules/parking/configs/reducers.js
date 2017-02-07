@@ -3,11 +3,13 @@ import {
   SET_PARKING_METADATA,
   CLICK_MARKER,
   CLICK_LIST,
+  SHOW_DETAIL,
 } from "../actions/action-types";
 
 const defaultState = {
   parkingMetadata: {},
   currentParkingID: 0,
+  activeDetail: "",
 };
 
 export function parking(state = defaultState, action) {
@@ -22,6 +24,8 @@ export function parking(state = defaultState, action) {
       return {...state};
     case CLICK_LIST:
       return {...state, currentParkingID: action.id};
+    case SHOW_DETAIL:
+      return {...state, activeDetail: action.detail};
     default:
       return state;
   }

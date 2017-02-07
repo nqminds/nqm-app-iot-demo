@@ -48,6 +48,7 @@ const getParkingMetadata = ({Meteor, connectionManager, setParkingMetadata}, onD
 export const stateMapper = (state) => ({
   parkingMetadata: state.parking.parkingMetadata,
   currentParkingID: state.parking.currentParkingID,
+  activeDetail: state.parking.activeDetail,
 });
 
 export const depsMapper = (context, actions) => ({
@@ -57,6 +58,7 @@ export const depsMapper = (context, actions) => ({
   constants: context.constants,
   setParkingMetadata: actions.parking.setParkingMetadata,
   clickMarker: actions.parking.clickMarker,
+  showDetail: actions.parking.showDetail,
 });
 
 export default dataLoader.merge(

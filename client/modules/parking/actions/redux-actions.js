@@ -11,3 +11,7 @@ export const clickMarker = function(id) {
 export const clickList = function(id) {
   return {type: actionTypes.CLICK_LIST, id};
 };
+
+export const showDetail = function(detail) {
+  return {type: actionTypes.SHOW_DETAIL, detail};
+};
