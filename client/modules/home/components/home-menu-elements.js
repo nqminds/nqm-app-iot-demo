@@ -3,7 +3,6 @@ import React from "react";
 import BusList from "../../buses/containers/bus-list";
 import ParkingList from "../../parking/containers/parking-list";
 import MapDetailOverview from "../../map/components/map-detail-overview";
-import MapDetailSchools from "../../map/components/map-detail-schools";
 import MapDetailHousing from "../../map/components/map-detail-housing";
 
 const homeMenuElements = [{
