@@ -62,4 +62,9 @@ const ParkingOverview = () => (
   </div>
 );
 
+ParkingOverview.propTypes = {
+  currentvalue: React.PropTypes.number,
+  metadata: React.PropTypes.obect,
+};
+
 export default ParkingOverview;

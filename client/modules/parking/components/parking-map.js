@@ -1,7 +1,7 @@
 import React from "react";
 import {Map, TileLayer} from "react-leaflet";
 import MarkerCluster from "./marker-cluster";
-import ParkingDetails from "./parking-details";
+import ParkingDetails from "../containers/parking-details";
 
 const MK_COORDINATES = [52.0295016, -0.7766588];
 
