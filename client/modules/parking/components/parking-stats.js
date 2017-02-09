@@ -4,7 +4,8 @@ import FontIcon from "material-ui/FontIcon";
 import DatePicker from "material-ui/DatePicker";
 import injectSheet from "react-jss";
 import * as _ from "lodash";
-import TimeSeries from "./time-series";
+// import TimeSeries from "./time-series";
+import rd3 from "rd3";
 
 const styles = {
   containerNoWrap: {
@@ -67,7 +68,8 @@ class ParkingStats extends React.Component {
         labelPosition="before"
         onTouchTap={this.handleBarPlotButton}
       />);
-    const timeSeries = (
+
+    /*const timeSeries = (
       <TimeSeries
         axis={{x: "timestamp", y: "currentvalue"}}
         className={"timeseries"}
@@ -75,6 +77,29 @@ class ParkingStats extends React.Component {
         height={300}
         width={300}
         yLabel={"Current value"}
+      />
+    );*/
+
+    const LineChart = rd3.LineChart;
+    const lineData = [{name: "Bays", values: this.props.data}];
+
+    console.log(lineData);
+    const timeSeries = (
+      <LineChart
+        legend={false}
+        data={lineData}
+        width="100%"
+        height={400}
+        viewBoxObject={{
+          x: 0,
+          y: 0,
+          width: 400,
+          height: 400,
+        }}
+        yAxisLabel="Current Value"
+        xAxisLabel="Local Time (hour)"
+        domain={{x: [], y: []}}
+        gridHorizontal={true}
       />
     );
     return (

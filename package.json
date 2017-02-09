@@ -44,6 +44,7 @@
     "meteor-node-stubs": "^0.2.5",
     "nqm-api-tdx": "^0.1.30",
     "nqm-app-framework": "^0.1.13",
+    "rd3": "^0.7.4",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.1",
     "react-dom": "^15.4.2",

@@ -25,9 +25,13 @@ const getParkingData = ({Meteor, connectionManager, currentParkingID, filterDate
       onData(err, {});
     else {
       const plotData = [];
-      // Plot only every 10 minutes data point
+      let xhour = 0;
+
       _.forEach(data.data, (elem, idx) => {
-        if (idx % 10) plotData.push(elem);
+        const hour = new Date(elem.timestamp).getHours();
+        if (idx > 0 && xhour < hour)
+          plotData.push({x: hour, y: elem.currentvalue});
+        xhour = hour;
       });
       onData(null, {data: plotData});
     }

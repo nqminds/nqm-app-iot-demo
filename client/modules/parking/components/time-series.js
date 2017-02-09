@@ -95,7 +95,7 @@ class TimeSeries extends React.Component {
   }
 
   render() {
-    console.log("Here");
+    console.log(this.props.data[0]);
     return (
       <svg
         id={this.props.className}
