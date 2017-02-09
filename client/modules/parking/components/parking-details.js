@@ -2,6 +2,7 @@ import React from "react";
 import framework from "nqm-app-framework";
 
 import ParkingOverview from "./parking-overview";
+import ParkingStats from "../containers/parking-stats";
 
 const StickyDetails = framework.ui.StickyDetails;
 const StickyDetail = framework.ui.StickyDetail;
@@ -25,7 +26,7 @@ const ParkingDetails = ({activeDetail, showDetail, topOffset, currentParkingID, 
       icon="equalizer"
       value="statistics"
     >
-      <ParkingOverview />
+      <ParkingStats />
     </StickyDetail>
   </StickyDetails>);
 };

@@ -21,5 +21,9 @@ export default {
     setMarkerData({store}, data) {
       store.dispatch(reduxActions.setMarkerData(data));
     },
+
+    setFilterDate({store}, date) {
+      store.dispatch(reduxActions.setFilterDate(date));
+    },
   },
 };

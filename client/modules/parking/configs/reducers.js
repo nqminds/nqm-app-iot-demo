@@ -5,6 +5,7 @@ import {
   CLICK_LIST,
   SHOW_DETAIL,
   SET_MARKER_DATA,
+  SET_FILTER_DATE,
 } from "../actions/action-types";
 
 const defaultState = {
@@ -12,6 +13,7 @@ const defaultState = {
   currentParkingID: 0,
   activeDetail: "",
   markeData: {},
+  filterDate: Date(),
 };
 
 // Trigger the stats view
@@ -39,13 +41,15 @@ export function parking(state = defaultState, action) {
     case SHOW_DETAIL:
       return {...state, activeDetail: action.detail};
     case SET_MARKER_DATA:
-      const markerData = _.clone(state.markeData);
+      const markerData = {...state.markeData};
       _.forEach(action.data, (val) => {
         markerData[val.ID] = val.currentvalue;
       });
       return {...state, markerData: markerData};
+    case SET_FILTER_DATE:
+      return {...state, filterDate: action.date};
     default:
-      return state;
+      return {...state};
   }
 }
 

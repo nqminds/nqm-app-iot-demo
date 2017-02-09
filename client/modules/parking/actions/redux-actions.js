@@ -19,3 +19,7 @@ export const showDetail = function(detail) {
 export const setMarkerData = function(data) {
   return {type: actionTypes.SET_MARKER_DATA, data};
 };
+
+export const setFilterDate = function(date) {
+  return {type: actionTypes.SET_FILTER_DATE, date};
+};

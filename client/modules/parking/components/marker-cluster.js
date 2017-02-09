@@ -30,10 +30,7 @@ class MarkerCluster extends MapLayer {
         });
 
         this.markers[Number(val.LotCode)].bindPopup(
-                    `<b>Street name: </b>${val.Street}<br>` +
-                    `<b>Bay type: </b>${val.BayType}<br>` +
-                    `<b>Tarrif code:</b>${val.TariffCode}<br>` +
-                    `<b>Bay count:</b>${val.BayCount}`).on("click", (event) => {
+                    `<b>Bay count:</b> ${val.BayCount}`).on("click", (event) => {
                       self.props.handleClickMarker(event.target.options.icon.options.id) ;
                     });
         return this.markers[Number(val.LotCode)];
