@@ -6,13 +6,13 @@ import ParkingOverview from "./parking-overview";
 const StickyDetails = framework.ui.StickyDetails;
 const StickyDetail = framework.ui.StickyDetail;
 
-const ParkingDetails = ({activeDetail, showDetail, topOffset, currentParkingID, markerData, parkingMetadata}) => (
-  <StickyDetails
+const ParkingDetails = ({activeDetail, showDetail, topOffset, currentParkingID, markerData, parkingMetadata}) => {
+  return (<StickyDetails
     activeDetail={activeDetail}
     iconModes={["narrow"]}
     onDetail={(item) => (showDetail(item))}
     stickyTop={topOffset}
-  >
+          >
     <StickyDetail
       title="Overview"
       icon="subject"
@@ -27,8 +27,8 @@ const ParkingDetails = ({activeDetail, showDetail, topOffset, currentParkingID, 
     >
       <ParkingOverview />
     </StickyDetail>
-  </StickyDetails>
-);
+  </StickyDetails>);
+};
 
 ParkingDetails.propTypes = {
   activeDetail: React.PropTypes.string,
