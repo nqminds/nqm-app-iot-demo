@@ -6,6 +6,7 @@ import {
   SHOW_DETAIL,
   SET_MARKER_DATA,
   SET_FILTER_DATE,
+  SET_PLOT_TYPE,
 } from "../actions/action-types";
 
 const defaultState = {
@@ -14,6 +15,7 @@ const defaultState = {
   activeDetail: "",
   markeData: {},
   filterDate: Date(),
+  plotType: "timeseries",
 };
 
 // Trigger the stats view
@@ -48,6 +50,8 @@ export function parking(state = defaultState, action) {
       return {...state, markerData: markerData};
     case SET_FILTER_DATE:
       return {...state, filterDate: action.date};
+    case SET_PLOT_TYPE:
+      return {...state, plotType: action.plottype};
     default:
       return {...state};
   }

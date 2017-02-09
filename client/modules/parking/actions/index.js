@@ -25,5 +25,9 @@ export default {
     setFilterDate({store}, date) {
       store.dispatch(reduxActions.setFilterDate(date));
     },
+
+    setPlotType({store}, plottype) {
+      store.dispatch(reduxActions.setPlotType(plottype));
+    },
   },
 };

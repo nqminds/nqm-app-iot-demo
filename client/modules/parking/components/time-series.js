@@ -2,7 +2,7 @@ import React from "react";
 import * as d3 from "d3";
 
 /* Data consists of :
-{value: 10, timestamp: unixTime}
+{[axis.y]: 10, [axis.x]: unixTime}
 
 */
 
@@ -21,17 +21,15 @@ class TimeSeries extends React.Component {
       .scale(this.xScale)
       .orient("bottom")
       .ticks(4)
-      .tickFormat(d3.format(""));
+      .tickFormat((d) => {
+        return `${new Date(d).getHours()}`;
+      });
     this.yAxis = d3.svg.axis()
       .scale(this.yScale)
       .orient("left")
       .ticks(4)
       .tickFormat((d) => {
-        if (d / 100000 > 0) {
-          return `£${Math.round(d / 100000) / 10}M`;
-        } else if (d / 1000 > 0) {
-          return `£${Math.round(d / 100) / 10}K`;
-        } else return `£${d}`;
+        return `${d}`;
       });
     this.line = d3.svg.line();
 
@@ -44,33 +42,33 @@ class TimeSeries extends React.Component {
 
   draw(props) {
     props.data.sort((a, b) => {
-      return a.timestamp - b.timestamp;
+      return a[props.axis.x] - b[props.axis.x];
     });
 
     const yMin = d3.min(props.data, (d) => {
-      return d.value;
+      return d[props.axis.y];
     });
     const yMax = d3.max(props.data, (d) => {
-      return d.value;
+      return d[props.axis.y];
     });
-    this.yScale.domain([0.8 * yMin, 1.2 * yMax])
+    this.yScale.domain([yMin, 1.1 * yMax])
       .range([this.state.height, 0]);
 
     const xMin = d3.min(props.data, (d) => {
-      return d.timestamp;
+      return d[props.axis.x];
     });
     const xMax = d3.max(props.data, (d) => {
-      return d.timestamp;
+      return d[props.axis.x];
     });
     this.xScale.domain([xMin, xMax])
       .range([0, this.state.width]);
 
-    this.line.interpolate("cardinal")
+    this.line.interpolate("basis")
       .x((d) => {
-        return this.xScale(d.timestamp);
+        return this.xScale(d[props.axis.x]);
       })
       .y((d) => {
-        return this.yScale(d.value);
+        return this.yScale(d[props.axis.y]);
       });
 
     const svg = d3.select(`#${props.className}`);
@@ -94,31 +92,10 @@ class TimeSeries extends React.Component {
       .duration(1000)
       .ease("linear")
       .attr("stroke-dashoffset", 0);
-
-    const dots = svg.select(`#dots${props.className}`)
-      .selectAll(`.dot.${props.className}`)
-      .data(props.data);
-    dots.enter()
-      .append("circle")
-      .attr("class", `dot ${props.className}`)
-      .style("fill", this.context.muiTheme.palette.accent1Color)
-      .attr("r", 2.5)
-      .attr("fill-opacity", 0);
-    dots.transition()
-      .delay((d, i) => {
-        return i * 1000 / props.data.length;
-      })
-      .transition()
-      .attr("fill-opacity", 1)
-      .attr("cx", (d) => {
-        return this.xScale(d.timestamp);
-      })
-      .attr("cy", (d) => {
-        return this.yScale(d.value);
-      });
   }
 
   render() {
+    console.log("Here");
     return (
       <svg
         id={this.props.className}
@@ -159,6 +136,7 @@ TimeSeries.contextTypes = {
 };
 
 TimeSeries.propTypes = {
+  axis: React.PropTypes.object.isRequired,
   className: React.PropTypes.string.isRequired,
   data: React.PropTypes.array.isRequired,
   height: React.PropTypes.number.isRequired,

@@ -4,6 +4,7 @@ import FontIcon from "material-ui/FontIcon";
 import DatePicker from "material-ui/DatePicker";
 import injectSheet from "react-jss";
 import * as _ from "lodash";
+import TimeSeries from "./time-series";
 
 const styles = {
   containerNoWrap: {
@@ -32,11 +33,11 @@ class ParkingStats extends React.Component {
   }
 
   handleTimePlotButton() {
-
+    this.props.setPlotType("timeseries");
   }
 
   handleBarPlotButton() {
-
+    this.props.setPlotType("bar");
   }
 
   handleFilterDate(event, date) {
@@ -66,6 +67,16 @@ class ParkingStats extends React.Component {
         labelPosition="before"
         onTouchTap={this.handleBarPlotButton}
       />);
+    const timeSeries = (
+      <TimeSeries
+        axis={{x: "timestamp", y: "currentvalue"}}
+        className={"timeseries"}
+        data={this.props.data}
+        height={300}
+        width={300}
+        yLabel={"Current value"}
+      />
+    );
     return (
       <div>
         <div style={styles.containerWrap}>
@@ -73,6 +84,9 @@ class ParkingStats extends React.Component {
           <div style={styles.containerNoWrap}>
             {timePlotButton}{barPlotButton}
           </div>
+        </div>
+        <div>
+          {timeSeries}
         </div>
       </div>
     );
@@ -84,6 +98,7 @@ ParkingStats.propTypes = {
   data: React.PropTypes.array.isRequired,
   filterDate: React.PropTypes.string.isRequired,
   setFilterDate: React.PropTypes.func.isRequired,
+  setPlotType: React.PropTypes.func.isRequired,
 };
 
 export default injectSheet(styles)(ParkingStats);

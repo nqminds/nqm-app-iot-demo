@@ -23,3 +23,7 @@ export const setMarkerData = function(data) {
 export const setFilterDate = function(date) {
   return {type: actionTypes.SET_FILTER_DATE, date};
 };
+
+export const setPlotType = function(plottype) {
+  return {type: actionTypes.SET_PLOT_TYPE, plottype};
+};
