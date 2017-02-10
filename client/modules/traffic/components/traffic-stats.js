@@ -22,7 +22,7 @@ const styles = {
   },
 };
 
-class ParkingStats extends React.Component {
+class TrafficStats extends React.Component {
   constructor(props) {
     super(props);
 
@@ -105,8 +105,8 @@ class ParkingStats extends React.Component {
   }
 }
 
-ParkingStats.propTypes = {
-  currentParkingID: React.PropTypes.number.isRequired,
+TrafficStats.propTypes = {
+  currentTrafficID: React.PropTypes.number.isRequired,
   data: React.PropTypes.array.isRequired,
   filterDate: React.PropTypes.string.isRequired,
   screenSize: React.PropTypes.object.isRequired,
@@ -114,4 +114,4 @@ ParkingStats.propTypes = {
   setScreenSize: React.PropTypes.func.isRequired,
 };
 
-export default injectSheet(styles)(ParkingStats);
+export default injectSheet(styles)(TrafficStats);

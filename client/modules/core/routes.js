@@ -7,7 +7,8 @@ import {syncHistoryWithStore} from "react-router-redux";
 // Application pages
 import BusMap from "../buses/containers/bus-map";
 import ParkingMap from "../parking/containers/parking-map";
-import LeafletMap from "../map/containers/leaflet-map";
+import TrafficMap from "../traffic/containers/traffic-map";
+
 // Application sidebar
 import AppSideBar from "./components/app-side-bar";
 
@@ -28,7 +29,7 @@ export default function(injectDeps, context, actions) {   // eslint-disable-line
         <IndexRoute components={{content: BusMap, sideBarContent: AppSideBar}} />
       </Route>
       <Route path="/traffic" title="Traffic" component={Layout}>
-        <IndexRoute components={{content: LeafletMap, sideBarContent: AppSideBar}} />
+        <IndexRoute components={{content: TrafficMap, sideBarContent: AppSideBar}} />
       </Route>
       <Route path="/parking" title="Parking" component={Layout}>
         <IndexRoute components={{content: ParkingMap, sideBarContent: AppSideBar}} />
