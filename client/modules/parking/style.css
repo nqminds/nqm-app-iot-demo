@@ -1,8 +1,7 @@
-/* RD3 styling */
-.chart-wrapper {
-  height: 300px;
-  width: calc(100% - 20px);
-  padding: 10px;
+/* Leaflet */
+.leaflet-tile-pane {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
 /* D3 styling */
