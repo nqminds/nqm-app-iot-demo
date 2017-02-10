@@ -26,8 +26,8 @@ export default {
       store.dispatch(reduxActions.setFilterDate(date));
     },
 
-    setPlotType({store}, plottype) {
-      store.dispatch(reduxActions.setPlotType(plottype));
+    setScreenSize({store}, size) {
+      store.dispatch(reduxActions.setScreenSize(size));
     },
   },
 };

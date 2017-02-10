@@ -25,13 +25,9 @@ const getParkingData = ({Meteor, connectionManager, currentParkingID, filterDate
       onData(err, {});
     else {
       const plotData = [];
-      let xhour = 0;
 
-      _.forEach(data.data, (elem, idx) => {
-        const hour = new Date(elem.timestamp).getHours();
-        if (idx > 0 && xhour < hour)
-          plotData.push({x: hour, y: elem.currentvalue});
-        xhour = hour;
+      _.forEach(data.data, (elem) => {
+        plotData.push({x: elem.timestamp, y: elem.currentvalue});
       });
       onData(null, {data: plotData});
     }
@@ -41,6 +37,7 @@ const getParkingData = ({Meteor, connectionManager, currentParkingID, filterDate
 export const stateMapper = (state) => ({
   currentParkingID: state.parking.currentParkingID,
   filterDate: state.parking.filterDate,
+  screenSize: state.parking.screenSize,
 });
 
 export const depsMapper = (context, actions) => ({
@@ -49,7 +46,7 @@ export const depsMapper = (context, actions) => ({
   connectionManager: context.connectionManager,
   constants: context.constants,
   setFilterDate: actions.parking.setFilterDate,
-  setPlotType: actions.parking.setPlotType,
+  setScreenSize: actions.parking.setScreenSize,
 });
 
 export default dataLoader.merge(

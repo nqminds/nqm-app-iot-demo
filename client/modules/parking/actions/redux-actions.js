@@ -24,6 +24,6 @@ export const setFilterDate = function(date) {
   return {type: actionTypes.SET_FILTER_DATE, date};
 };
 
-export const setPlotType = function(plottype) {
-  return {type: actionTypes.SET_PLOT_TYPE, plottype};
+export const setScreenSize = function(size) {
+  return {type: actionTypes.SET_SCREEN_SIZE, size};
 };
