@@ -8,6 +8,7 @@ import {syncHistoryWithStore} from "react-router-redux";
 import BusMap from "../buses/containers/bus-map";
 import ParkingMap from "../parking/containers/parking-map";
 import TrafficMap from "../traffic/containers/traffic-map";
+import AirMap from "../air/containers/air-map";
 
 // Application sidebar
 import AppSideBar from "./components/app-side-bar";
@@ -35,7 +36,7 @@ export default function(injectDeps, context, actions) {   // eslint-disable-line
         <IndexRoute components={{content: ParkingMap, sideBarContent: AppSideBar}} />
       </Route>
       <Route path="/air" title="Air" component={Layout}>
-        <IndexRoute components={{content: BusMap, sideBarContent: AppSideBar}} />
+        <IndexRoute components={{content: AirMap, sideBarContent: AppSideBar}} />
       </Route>
       <Route path="*" component={NotFound} />
     </Router>

@@ -11,6 +11,7 @@ import homeModule from "./modules/home";
 import busModule from "./modules/buses";
 import parkingModule from "./modules/parking";
 import trafficModule from "./modules/traffic";
+import airModule from "./modules/air";
 import mapModule from "./modules/map";
 
 // reducers
@@ -20,6 +21,7 @@ const reducer = combineReducers({
   ...busModule.reducers,
   ...parkingModule.reducers,
   ...trafficModule.reducers,
+  ...airModule.reducers,
   ...mapModule.reducers,
   routing: routerReducer,
 });
@@ -37,6 +39,7 @@ app.loadModule(homeModule);
 app.loadModule(busModule);
 app.loadModule(parkingModule);
 app.loadModule(trafficModule);
+app.loadModule(airModule);
 app.loadModule(mapModule);
 
 // go

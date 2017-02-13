@@ -3,7 +3,7 @@ import React from "react";
 import BusList from "../../buses/containers/bus-list";
 import ParkingList from "../../parking/containers/parking-list";
 import TrafficList from "../../traffic/containers/traffic-list";
-import MapDetailHousing from "../../map/components/map-detail-housing";
+import AirList from "../../air/containers/air-list";
 
 const homeMenuElements = [{
   route: "/buses",
@@ -28,7 +28,7 @@ const homeMenuElements = [{
   title: "Air",
   value: "menuAir",
   icon: "cloud",
-  content: <MapDetailHousing showClose={true} />,
+  content: <AirList />,
 },
 ];
 

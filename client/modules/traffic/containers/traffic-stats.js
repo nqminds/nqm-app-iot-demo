@@ -17,6 +17,7 @@ const getTrafficData = ({Meteor, connectionManager, currentTrafficID, filterDate
   date.setMilliseconds(0);
 
   const options = {sort: {timestamp: 1}, limit: 1000};
+
   // Get only the current selected marker and the selected time
   const filter = {ID: {"$eq": currentTrafficID}, timestamp: {"$gte": timestamp}};
 
