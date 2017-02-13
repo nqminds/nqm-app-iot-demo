@@ -29,5 +29,9 @@ export default {
     setScreenSize({store}, size) {
       store.dispatch(reduxActions.setScreenSize(size));
     },
+
+    setStatsType({store}, statstype) {
+      store.dispatch(reduxActions.setStatsType(statstype));
+    },
   },
 };

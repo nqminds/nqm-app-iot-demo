@@ -7,6 +7,7 @@ import {
   SET_MARKER_DATA,
   SET_FILTER_DATE,
   SET_SCREEN_SIZE,
+  SET_STATS_TYPE,
 } from "../actions/action-types";
 
 const defaultState = {
@@ -16,6 +17,7 @@ const defaultState = {
   markeData: {},
   filterDate: Date(),
   screenSize: {width: 300, height: 0},
+  statsType: "EntryCongestionLevel",
 };
 
 // Trigger the stats view
@@ -52,6 +54,8 @@ export function traffic(state = defaultState, action) {
       return {...state, filterDate: action.date};
     case SET_SCREEN_SIZE:
       return {...state, screenSize: action.size};
+    case SET_STATS_TYPE:
+      return {...state, statsType: action.statstype};
     default:
       return {...state};
   }

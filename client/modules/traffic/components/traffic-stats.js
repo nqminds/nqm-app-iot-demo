@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import DatePicker from "material-ui/DatePicker";
+import SelectField from "material-ui/SelectField";
+import MenuItem from "material-ui/MenuItem";
 import injectSheet from "react-jss";
 import * as _ from "lodash";
 import rd3 from "rd3";
@@ -28,6 +30,7 @@ class TrafficStats extends React.Component {
 
     this.handleFilterDate = this.handleFilterDate.bind(this);
     this.fitToParentSize = this.fitToParentSize.bind(this);
+    this.handleStatsPicker = this.handleStatsPicker.bind(this); 
   }
 
   componentDidMount() {
@@ -47,6 +50,10 @@ class TrafficStats extends React.Component {
     this.props.setFilterDate(date.toString());
   }
 
+  handleStatsPicker(event, index, value) {
+    this.props.setStatsType(value);
+  }
+ 
   fitToParentSize() {
     const elem = ReactDOM.findDOMNode(this);
     const screenSize = {width: elem.parentNode.offsetWidth, height: elem.parentNode.offsetHeight};
@@ -64,6 +71,22 @@ class TrafficStats extends React.Component {
         onChange={this.handleFilterDate.bind(this)}
       />);
 
+    const statsPicker = (
+      <SelectField
+        floatingLabelText="Type"
+        value={this.props.statsType}
+        onChange={this.handleStatsPicker}
+      >
+        <MenuItem value={"EntryCongestionLevel"} primaryText="EntryCongestionLevel" />
+        <MenuItem value={"ExitCongestionLevel"} primaryText="ExitCongestionLevel" />
+        <MenuItem value={"RoundaboutInsideSpeed"} primaryText="RoundaboutInsideSpeed" />
+        <MenuItem value={"RoundaboutExitSpeed"} primaryText="RoundaboutExitSpeed" />
+        <MenuItem value={"RoundaboutEntrySpeed"} primaryText="RoundaboutEntrySpeed" />
+        <MenuItem value={"RoundaboutInside"} primaryText="RoundaboutInside" />
+        <MenuItem value={"RoundaboutExit"} primaryText="RoundaboutExit" />
+        <MenuItem value={"RoundaboutEntry"} primaryText="RoundaboutEntry" />
+      </SelectField>
+    );
     const LineChart = rd3.LineChart;
     const lineData = [{name: "Bays", strokeWidth: 3, values: this.props.data}];
 
@@ -74,7 +97,7 @@ class TrafficStats extends React.Component {
         width={this.props.screenSize.width}
         height={300}
         margin={10}
-        yAxisLabel="Bay Occupancy"
+        yAxisLabel={this.props.statsType}
         xAxisLabel="Local Time (hour)"
         domain={{x: [], y: []}}
         gridHorizontal={true}
@@ -95,7 +118,7 @@ class TrafficStats extends React.Component {
     return (
       <div>
         <div style={styles.containerWrap}>
-          {datePicker}
+          {datePicker}{statsPicker}
         </div>
         <div>
           {timeSeries}
@@ -112,6 +135,8 @@ TrafficStats.propTypes = {
   screenSize: React.PropTypes.object.isRequired,
   setFilterDate: React.PropTypes.func.isRequired,
   setScreenSize: React.PropTypes.func.isRequired,
+  setStatsType: React.PropTypes.func.isRequired,
+  statsType: React.PropTypes.string.isRequired,
 };
 
 export default injectSheet(styles)(TrafficStats);

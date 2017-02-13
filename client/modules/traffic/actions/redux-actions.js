@@ -27,3 +27,7 @@ export const setFilterDate = function(date) {
 export const setScreenSize = function(size) {
   return {type: actionTypes.SET_SCREEN_SIZE, size};
 };
+
+export const setStatsType = function(statstype) {
+  return {type: actionTypes.SET_STATS_TYPE, statstype};
+};
