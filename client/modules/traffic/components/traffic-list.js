@@ -34,14 +34,15 @@ class TrafficList extends React.Component {
 
     const list = _.map(this.props.trafficMetadata, (d, i) => {
       const itemStyle = (d.ID === this.props.currentTrafficID) ? dynamicStyles.activeItemStyle : styles.itemStyle;
+      const titleStr = d.Title.split("_");
       return (
         <ListItem
           innerDivStyle={itemStyle}
           key={i}
           leftIcon={<FontIcon className="material-icons">traffic</FontIcon>}
-          primaryText={d.Title}
+          primaryText={`${titleStr[2]} ${titleStr[3]}`}
           secondaryText={`Group: ${d.Group.toString()}`}
-          onClick={this.onClickTraffic.bind(this, d.LotCode)}
+          onClick={this.onClickTraffic.bind(this, d.ID)}
         />);
     });
 

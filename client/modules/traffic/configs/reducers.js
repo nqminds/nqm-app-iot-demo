@@ -45,7 +45,7 @@ export function traffic(state = defaultState, action) {
     case SET_MARKER_DATA:
       const markerData = {...state.markeData};
       _.forEach(action.data, (val) => {
-        markerData[val.ID] = val.currentvalue;
+        markerData[val.ID] = val;
       });
       return {...state, markerData: markerData};
     case SET_FILTER_DATE:

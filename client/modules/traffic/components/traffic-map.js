@@ -20,7 +20,7 @@ const TrafficMap = ({trafficMetadata, data, clickMarker, style, currentTrafficID
   // Set the zoom level
   if (currentTrafficID) {
     zoom = 18;
-    centreCoordinates = [trafficMetadata[currentTrafficID].Latitude, trafficMetadata[currentTrafficID].Longitude];
+    centreCoordinates = [trafficMetadata[currentTrafficID].Lat, trafficMetadata[currentTrafficID].Lon];
   }
 
   const map = (

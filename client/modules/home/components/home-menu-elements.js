@@ -2,7 +2,7 @@ import React from "react";
 
 import BusList from "../../buses/containers/bus-list";
 import ParkingList from "../../parking/containers/parking-list";
-import MapDetailOverview from "../../map/components/map-detail-overview";
+import TrafficList from "../../traffic/containers/traffic-list";
 import MapDetailHousing from "../../map/components/map-detail-housing";
 
 const homeMenuElements = [{
@@ -16,7 +16,7 @@ const homeMenuElements = [{
   title: "Traffic",
   value: "menuTraffic",
   icon: "traffic",
-  content: <MapDetailOverview showClose={true} />,
+  content: <TrafficList />,
 }, {
   route: "/parking",
   title: "Parking",

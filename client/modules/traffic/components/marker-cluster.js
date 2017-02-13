@@ -10,6 +10,7 @@ class MarkerCluster extends MapLayer {
     super(props);
 
     this.markers = {};
+    this.markerClick = this.markerClick.bind(this);
   }
 
   componentWillMount() {
@@ -31,7 +32,7 @@ class MarkerCluster extends MapLayer {
 
         this.markers[Number(val.ID)].bindPopup(
                     `<b>Street:</b> ${val.Title}`).on("click", (event) => {
-                      self.props.handleClickMarker(event.target.options.icon.options.id) ;
+                      self.markerClick(event.target.options.icon.options.id);
                     });
         return this.markers[Number(val.ID)];
       });
@@ -43,6 +44,9 @@ class MarkerCluster extends MapLayer {
     return false;
   }
 
+  markerClick(id) {
+    this.props.handleClickMarker(id);
+  }
   render() {
     return null;
   }
