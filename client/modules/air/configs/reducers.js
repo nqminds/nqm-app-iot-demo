@@ -11,7 +11,7 @@ import {
 
 const defaultState = {
   airMetadata: {},
-  currentAirID: 0,
+  currentAirID: "",
   activeDetail: "",
   markeData: {},
   filterDate: Date(),

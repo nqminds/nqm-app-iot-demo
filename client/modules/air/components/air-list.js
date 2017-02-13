@@ -56,7 +56,7 @@ class AirList extends React.Component {
 AirList.propTypes = {
   airMetadata: React.PropTypes.object.isRequired,
   clickList: React.PropTypes.func.isRequired,
-  currentAirID: React.PropTypes.number.isRequired,
+  currentAirID: React.PropTypes.string.isRequired,
 };
 
 AirList.contextTypes = {

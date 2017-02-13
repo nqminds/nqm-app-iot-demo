@@ -106,7 +106,7 @@ class AirStats extends React.Component {
 }
 
 AirStats.propTypes = {
-  currentAirID: React.PropTypes.number.isRequired,
+  currentAirID: React.PropTypes.string.isRequired,
   data: React.PropTypes.array.isRequired,
   filterDate: React.PropTypes.string.isRequired,
   screenSize: React.PropTypes.object.isRequired,

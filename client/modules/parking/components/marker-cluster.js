@@ -2,7 +2,7 @@ import React from "react";
 import {MapLayer} from "react-leaflet";
 import "leaflet";
 import "leaflet.markercluster";
-import "./leaflet-text-icon.js";
+import "../../components/leaflet-text-icon.js";
 import * as _ from "lodash";
 
 class MarkerCluster extends MapLayer {
@@ -23,6 +23,7 @@ class MarkerCluster extends MapLayer {
         this.markers[Number(val.LotCode)] = L.marker(new L.LatLng(val.Latitude, val.Longitude), {
           title: val.Street,
           icon: new L.TextIcon({
+            icontype: "number",
             text: val.BayCount.toString(),
             color: "blue",
             id: Number(val.LotCode),
@@ -42,8 +43,9 @@ class MarkerCluster extends MapLayer {
   componentWillReceiveProps(nextProps) {
     _.forEach(nextProps.data, (val) => {
       const color = Number(val.currentvalue) ? "blue" : "red";
-      this.markers[Number(val.ID)].options.icon.setColor(color);
-      this.markers[Number(val.ID)].options.icon.setText(val.currentvalue.toString());
+      // this.markers[Number(val.ID)].options.icon.setColor(color);
+      // this.markers[Number(val.ID)].options.icon.setText(val.currentvalue.toString());
+      this.markers[Number(val.ID)].options.icon.setType("number", color, val.currentvalue.toString());
     });
   }
 

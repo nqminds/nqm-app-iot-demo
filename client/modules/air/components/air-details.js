@@ -34,7 +34,7 @@ const AirDetails = ({activeDetail, showDetail, topOffset, currentAirID, markerDa
 AirDetails.propTypes = {
   activeDetail: React.PropTypes.string,
   airMetadata: React.PropTypes.object,
-  currentAirID: React.PropTypes.number,
+  currentAirID: React.PropTypes.string,
   markerData: React.PropTypes.object,
   sheet: React.PropTypes.object,
   showDetail: React.PropTypes.func,

@@ -2,7 +2,7 @@ import React from "react";
 import {MapLayer} from "react-leaflet";
 import "leaflet";
 import "leaflet.markercluster";
-import "./leaflet-text-icon.js";
+import "../../components/leaflet-text-icon.js";
 import * as _ from "lodash";
 
 class MarkerCluster extends MapLayer {

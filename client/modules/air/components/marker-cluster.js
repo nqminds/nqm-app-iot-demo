@@ -2,7 +2,7 @@ import React from "react";
 import {MapLayer} from "react-leaflet";
 import "leaflet";
 import "leaflet.markercluster";
-import "./leaflet-text-icon.js";
+import "../../components/leaflet-text-icon.js";
 import * as _ from "lodash";
 
 class MarkerCluster extends MapLayer {
@@ -22,7 +22,7 @@ class MarkerCluster extends MapLayer {
 
     if (!_.isEmpty(this.props.airMetadata)) {
       markers = _.map(this.props.airMetadata, (val, key) => {
-        // The index of the markers array starts from 1
+        // The index of the markers array is a string
         this.markers[val.SiteCode] = L.marker(new L.LatLng(val.Latitude, val.Longitude), {
           title: val.LocalAuthorityName,
           icon: new L.TextIcon({

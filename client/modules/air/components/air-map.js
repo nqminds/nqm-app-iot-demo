@@ -3,7 +3,7 @@ import {Map, TileLayer} from "react-leaflet";
 import MarkerCluster from "./marker-cluster";
 import AirDetails from "../containers/air-details";
 
-const LONDON_COORDINATES = [52.008778, -0.771088];
+const LONDON_COORDINATES = [51.513007, -0.091703];
 
 const AirMap = ({airMetadata, data, clickMarker, style, currentAirID, constants, showDetail, activeDetail}) => {
   const markerComponent = (
@@ -19,7 +19,7 @@ const AirMap = ({airMetadata, data, clickMarker, style, currentAirID, constants,
 
   // Add the centre coordinates of the air space
   // Set the zoom level
-  if (currentAirID) {
+  if (currentAirID.length) {
     zoom = 18;
     centreCoordinates = [airMetadata[currentAirID].Latitude, airMetadata[currentAirID].Longitude];
   }
@@ -71,7 +71,7 @@ const AirMap = ({airMetadata, data, clickMarker, style, currentAirID, constants,
 AirMap.propTypes = {
   airMetadata: React.PropTypes.object.isRequired,
   clickMarker: React.PropTypes.func.isRequired,
-  currentAirID: React.PropTypes.number.isRequired,
+  currentAirID: React.PropTypes.string.isRequired,
   data: React.PropTypes.array.isRequired,
   style: React.PropTypes.object,
 };
