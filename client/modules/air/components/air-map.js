@@ -21,7 +21,7 @@ const AirMap = ({airMetadata, data, clickMarker, style, currentAirID, constants,
   // Set the zoom level
   if (currentAirID.length) {
     zoom = 18;
-    centreCoordinates = [airMetadata[currentAirID].Latitude, airMetadata[currentAirID].Longitude];
+    centreCoordinates = [Number(airMetadata[currentAirID].Latitude), Number(airMetadata[currentAirID].Longitude)];
   }
 
   const map = (

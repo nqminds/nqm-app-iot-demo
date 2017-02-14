@@ -35,7 +35,7 @@ class MarkerCluster extends MapLayer {
 
         this.markers[val.SiteCode]
             .bindPopup(`<b>Local authority name: </b>${val.LocalAuthorityName}<br><b>Site code: </b>${val.SiteCode}<br><b>Local authority code: </b>${val.LocalAuthorityCode}<br><b>Site type:</b>${val.SiteType}`)
-            .on("click", (evt) => (self.props.onClickMarker(evt.target.options.icon.options.id)));
+            .on("click", (event) => (self.props.handleClickMarker(event.target.options.icon.options.id)));
         return this.markers[val.SiteCode];
       });
       this.leafletElement.addLayers(markers);
@@ -45,7 +45,7 @@ class MarkerCluster extends MapLayer {
   componentWillReceiveProps(nextProps) {
     _.forEach(nextProps.data, (val) => {
       let color = "blue";
-      let mtext;
+      let mtext = "";
       let icontype = "plain";
 
       if (val.Species[nextProps.moleculeType] !== undefined) {
@@ -55,7 +55,8 @@ class MarkerCluster extends MapLayer {
           color = "red";
       }
 
-      this.markers[val.SiteCode].options.icon.setType(icontype, color, mtext);
+      if (!_.isEmpty(this.markers[val.SiteCode]))
+        this.markers[val.SiteCode].options.icon.setType(icontype, color, mtext);
     });
   }
 

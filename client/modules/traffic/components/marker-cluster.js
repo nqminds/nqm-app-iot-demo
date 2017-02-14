@@ -24,6 +24,7 @@ class MarkerCluster extends MapLayer {
         this.markers[Number(val.ID)] = L.marker(new L.LatLng(val.Lat, val.Lon), {
           title: val.Street,
           icon: new L.TextIcon({
+            icontype: "number",
             text: val.Group.toString(),
             color: "blue",
             id: Number(val.ID),

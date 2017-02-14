@@ -4,10 +4,16 @@ import framework from "nqm-app-framework";
 import AirOverview from "./air-overview";
 import AirStats from "../containers/air-stats";
 
+import * as _ from "lodash";
+
 const StickyDetails = framework.ui.StickyDetails;
 const StickyDetail = framework.ui.StickyDetail;
 
 const AirDetails = ({activeDetail, showDetail, topOffset, currentAirID, markerData, airMetadata}) => {
+  let species = {};
+  if (!_.isEmpty(markerData[currentAirID]))
+    species = markerData[currentAirID].Species;
+
   return (<StickyDetails
     activeDetail={activeDetail}
     iconModes={["narrow"]}
@@ -19,7 +25,7 @@ const AirDetails = ({activeDetail, showDetail, topOffset, currentAirID, markerDa
       icon="subject"
       value="overview"
     >
-      <AirOverview metadata={airMetadata[currentAirID]} currentvalue={markerData[currentAirID]} />
+      <AirOverview metadata={airMetadata[currentAirID]} currentvalue={species} />
     </StickyDetail>
     <StickyDetail
       title="Statistics"

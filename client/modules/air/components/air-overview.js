@@ -33,7 +33,7 @@ const AirOverview = ({currentvalue, metadata}) => (
 );
 
 AirOverview.propTypes = {
-  currentvalue: React.PropTypes.number,
+  currentvalue: React.PropTypes.object,
   metadata: React.PropTypes.object,
 };
 
