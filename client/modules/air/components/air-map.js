@@ -5,14 +5,15 @@ import AirDetails from "../containers/air-details";
 
 const LONDON_COORDINATES = [51.513007, -0.091703];
 
-const AirMap = ({airMetadata, data, clickMarker, style, currentAirID, constants, showDetail, activeDetail}) => {
+const AirMap = ({airMetadata, data, clickMarker, style, currentAirID, constants, showDetail, activeDetail, moleculeType}) => {
   const markerComponent = (
     <MarkerCluster
       airMetadata={airMetadata}
       data={data}
       handleClickMarker={clickMarker}
-      moleculeType="All"
+      moleculeType={moleculeType}
     />);
+
   let centreCoordinates = LONDON_COORDINATES;
   let zoom = 12;
   let content;
@@ -73,6 +74,7 @@ AirMap.propTypes = {
   clickMarker: React.PropTypes.func.isRequired,
   currentAirID: React.PropTypes.string.isRequired,
   data: React.PropTypes.array.isRequired,
+  moleculeType: React.PropTypes.string.isRequired,
   style: React.PropTypes.object,
 };
 
