@@ -20,10 +20,6 @@ class ParkingList extends React.Component {
     super(props);
   }
 
-  onClickParking(id) {
-    this.props.clickList(id);
-  }
-
   render() {
     const dynamicStyles = {
       activeItemStyle: {
@@ -35,6 +31,7 @@ class ParkingList extends React.Component {
 
     const list = _.map(this.props.parkingMetadata, (d, i) => {
       const itemStyle = (d.LotCode === this.props.currentParkingID) ? dynamicStyles.activeItemStyle : styles.itemStyle;
+      //{/*onClick={this.props.clickList(d.LotCode)}*/}
       return (
         <ListItem
           innerDivStyle={itemStyle}
@@ -42,7 +39,6 @@ class ParkingList extends React.Component {
           leftIcon={<FontIcon className="material-icons">local_parking</FontIcon>}
           primaryText={d.Street}
           secondaryText={d.BayType}
-          onClick={this.onClickParking.bind(this, d.LotCode)}
         />);
     });
 

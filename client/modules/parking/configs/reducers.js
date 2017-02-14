@@ -33,7 +33,8 @@ export function parking(state = defaultState, action) {
     case SET_PARKING_METADATA:
       const parkingMetadata = {};
       _.forEach(action.metadata, (val) => {
-        parkingMetadata[val.LotCode] = val;
+        parkingMetadata[Number(val.LotCode)] = val;
+        parkingMetadata[Number(val.LotCode)].LotCode = Number(parkingMetadata[Number(val.LotCode)]);
       });
       return {...state, parkingMetadata: parkingMetadata};
     case CLICK_MARKER:
@@ -45,7 +46,7 @@ export function parking(state = defaultState, action) {
     case SET_MARKER_DATA:
       const markerData = {...state.markeData};
       _.forEach(action.data, (val) => {
-        markerData[val.ID] = val.currentvalue;
+        markerData[Number(val.ID)] = val.currentvalue;
       });
       return {...state, markerData: markerData};
     case SET_FILTER_DATE:

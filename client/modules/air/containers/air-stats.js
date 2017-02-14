@@ -4,7 +4,7 @@ import {dataLoader} from "nqm-app-framework";
 import * as _ from "lodash";
 
 // Retrieve the metadata for air
-const getAirData = ({Meteor, connectionManager, currentAirID, filterDate}, onData) => {
+const getAirData = ({Meteor, connectionManager, currentAirID, filterDate, moleculeType}, onData) => {
   const resourceId = Meteor.settings.public.airTable;
   const date = new Date(filterDate);
 
@@ -14,9 +14,12 @@ const getAirData = ({Meteor, connectionManager, currentAirID, filterDate}, onDat
   date.setSeconds(0);
   date.setMilliseconds(0);
 
+  // Timestamp in milliseconds
+  const timestamp = date.getTime();
+
   const options = {sort: {timestamp: 1}, limit: 1000};
   // Get only the current selected marker and the selected time
-  const filter = {ID: {"$eq": currentAirID}, timestamp: {"$gte": date.getTime()}};
+  const filter = {SiteCode: {"$eq": currentAirID}, timestamp: {"$gte": timestamp}};
 
   connectionManager.tdxApi.getDatasetData(resourceId, filter, null, options, (err, data) => {
     if (err)
@@ -25,8 +28,15 @@ const getAirData = ({Meteor, connectionManager, currentAirID, filterDate}, onDat
       const plotData = [];
 
       _.forEach(data.data, (elem) => {
-        plotData.push({x: elem.timestamp, y: elem.Species});
+        const x = elem.timestamp || timestamp;
+        const y = elem.Species[moleculeType] || 0;
+        plotData.push({x: x, y: y});
       });
+
+      // Assign defualt value if empty
+      if (!plotData.length)
+        plotData.push({x: timestamp, y: 0});
+
       onData(null, {data: plotData});
     }
   });
@@ -36,6 +46,7 @@ export const stateMapper = (state) => ({
   currentAirID: state.air.currentAirID,
   filterDate: state.air.filterDate,
   screenSize: state.air.screenSize,
+  moleculeType: state.air.moleculeType,
 });
 
 export const depsMapper = (context, actions) => ({
@@ -48,7 +59,7 @@ export const depsMapper = (context, actions) => ({
 });
 
 export default dataLoader.merge(
-  dataLoader.compose(dataLoader.trackerFactory(getAirData), {propsToWatch: ["filterDate", "currentAirID"]}),
+  dataLoader.compose(dataLoader.trackerFactory(getAirData), {propsToWatch: ["filterDate", "currentAirID", "moleculeType"]}),
   dataLoader.compose(dataLoader.reduxFactory(stateMapper)),
   dataLoader.useDeps(depsMapper)
 )(AirStats);
