@@ -53,6 +53,7 @@ export const stateMapper = (state) => ({
   currentAirID: state.air.currentAirID,
   activeDetail: state.air.activeDetail,
   moleculeType: state.air.moleculeType,
+  plotType: state.air.plotType,
 });
 
 export const depsMapper = (context, actions) => ({

@@ -5,7 +5,7 @@ import * as _ from "lodash";
 const AirOverview = ({currentvalue, metadata}) => {
   const tdlist = _.map(currentvalue, (val, key) => (
     <Tr key={key}>
-      <Td className="tg-b7b8" column="Property" data={key}/>
+      <Td className="tg-b7b8" column="Property" data={key} />
       <Td className="tg-b7b8" column="Value" data={val} />
     </Tr>
   ));
