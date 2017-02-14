@@ -27,3 +27,11 @@ export const setFilterDate = function(date) {
 export const setScreenSize = function(size) {
   return {type: actionTypes.SET_SCREEN_SIZE, size};
 };
+
+export const setMoleculeType = function(moltype) {
+  return {type: actionTypes.SET_MOLECULE_TYPE, moltype};
+};
+
+export const setPlotType = function(plottype) {
+  return {type: actionTypes.SET_PLOT_TYPE, plottype};
+};

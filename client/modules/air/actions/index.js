@@ -29,5 +29,13 @@ export default {
     setScreenSize({store}, size) {
       store.dispatch(reduxActions.setScreenSize(size));
     },
+
+    setMoleculeType({store}, moltype) {
+      store.dispatch(reduxActions.setMoleculeType(moltype));
+    },
+
+    setPlotType({store}, plottype) {
+      store.dispatch(reduxActions.setPlotType(plottype));
+    },
   },
 };

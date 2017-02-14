@@ -39,18 +39,21 @@ class HomeMenu extends React.Component {
       },
     };
 
-    const menuItems = _.map(homeMenuElements, (itemData) => {
+    const menuItems = [];
+    _.forEach(homeMenuElements, (itemData) => {
       const active = this.context.router.isActive(itemData.route);
       const itemStyle = active ? dynamicStyles.activeItemStyle : styles.itemStyle;
-      return (
-        <ListItem
-          innerDivStyle={itemStyle}
-          key={itemData.value}
-          primaryText={itemData.title}
-          rightIcon={<FontIcon className="material-icons">{itemData.icon}</FontIcon>}
-          onTouchTap={this.handleMenuItem.bind(this, itemData.route)}
-        />
-      );
+      if (itemData.root) {
+        menuItems.push(
+          <ListItem
+            innerDivStyle={itemStyle}
+            key={itemData.value}
+            primaryText={itemData.title}
+            rightIcon={<FontIcon className="material-icons">{itemData.icon}</FontIcon>}
+            onTouchTap={this.handleMenuItem.bind(this, itemData.route)}
+          />
+        );
+      }
     });
 
     const content = (

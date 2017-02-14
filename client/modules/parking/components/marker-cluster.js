@@ -43,8 +43,6 @@ class MarkerCluster extends MapLayer {
   componentWillReceiveProps(nextProps) {
     _.forEach(nextProps.data, (val) => {
       const color = Number(val.currentvalue) ? "blue" : "red";
-      // this.markers[Number(val.ID)].options.icon.setColor(color);
-      // this.markers[Number(val.ID)].options.icon.setText(val.currentvalue.toString());
       this.markers[Number(val.ID)].options.icon.setType("number", color, val.currentvalue.toString());
     });
   }

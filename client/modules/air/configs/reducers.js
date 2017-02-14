@@ -7,6 +7,8 @@ import {
   SET_MARKER_DATA,
   SET_FILTER_DATE,
   SET_SCREEN_SIZE,
+  SET_MOLECULE_TYPE,
+  SET_PLOT_TYPE,
 } from "../actions/action-types";
 
 const defaultState = {
@@ -16,6 +18,8 @@ const defaultState = {
   markeData: {},
   filterDate: Date(),
   screenSize: {width: 300, height: 0},
+  moleculeType: "All",
+  plotType: "Sensors",
 };
 
 // Trigger the stats view
@@ -52,6 +56,10 @@ export function air(state = defaultState, action) {
       return {...state, filterDate: action.date};
     case SET_SCREEN_SIZE:
       return {...state, screenSize: action.size};
+    case SET_MOLECULE_TYPE:
+      return {...state, moleculeType: action.moltype};
+    case SET_PLOT_TYPE:
+      return {...state, plotType: action.plottype};
     default:
       return {...state};
   }

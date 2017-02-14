@@ -30,7 +30,7 @@ class TrafficStats extends React.Component {
 
     this.handleFilterDate = this.handleFilterDate.bind(this);
     this.fitToParentSize = this.fitToParentSize.bind(this);
-    this.handleStatsPicker = this.handleStatsPicker.bind(this); 
+    this.handleStatsPicker = this.handleStatsPicker.bind(this);
   }
 
   componentDidMount() {
