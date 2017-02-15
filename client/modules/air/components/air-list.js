@@ -33,7 +33,7 @@ class AirList extends React.Component {
     };
 
     const list = _.map(this.props.airMetadata, (d, i) => {
-      const itemStyle = (d.SiteCode === this.props.currentAirID) ? dynamicStyles.activeItemStyle : styles.itemStyle;
+      const itemStyle = (i === this.props.currentAirID) ? dynamicStyles.activeItemStyle : styles.itemStyle;
       return (
         <ListItem
           innerDivStyle={itemStyle}
@@ -41,7 +41,7 @@ class AirList extends React.Component {
           leftIcon={<FontIcon className="material-icons">cloud</FontIcon>}
           primaryText={d.LocalAuthorityName}
           secondaryText={`Site code: ${d.SiteCode}`}
-          onClick={this.onClickAir.bind(this, d.SiteCode)}
+          onClick={this.onClickAir.bind(this, i)}
         />);
     });
 

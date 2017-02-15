@@ -2,11 +2,6 @@ import React from "react";
 import {Table, Tr, Thead, Th, Td} from "reactable";
 
 const ParkingOverview = ({currentvalue, metadata}) => {
-  // let metadataTd;
-
-  // if (!_.isEmpty(metadata)) {
-  //   metadataTd = ()
-  // }
   return (
     <div style={{paddingLeft: 8}}>
       <Table className="tg">

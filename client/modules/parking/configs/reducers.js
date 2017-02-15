@@ -34,7 +34,6 @@ export function parking(state = defaultState, action) {
       const parkingMetadata = {};
       _.forEach(action.metadata, (val) => {
         parkingMetadata[Number(val.LotCode)] = val;
-        parkingMetadata[Number(val.LotCode)].LotCode = Number(parkingMetadata[Number(val.LotCode)]);
       });
       return {...state, parkingMetadata: parkingMetadata};
     case CLICK_MARKER:
