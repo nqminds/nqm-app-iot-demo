@@ -78,7 +78,7 @@ class AirStats extends React.Component {
         width={this.props.screenSize.width}
         height={300}
         margin={-1}
-        yAxisLabel="Bay Occupancy"
+        yAxisLabel="Quality"
         xAxisLabel="Local Time (hour)"
         gridHorizontal={true}
         gridVertical={true}
