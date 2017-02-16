@@ -21,6 +21,7 @@ class ParkingList extends React.Component {
   }
 
   clickList(id) {
+    this.props.setSidebarDocked(false);
     this.props.clickList(id);
   }
 
@@ -58,6 +59,7 @@ ParkingList.propTypes = {
   clickList: React.PropTypes.func.isRequired,
   currentParkingID: React.PropTypes.number.isRequired,
   parkingMetadata: React.PropTypes.object.isRequired,
+  setSidebarDocked: React.PropTypes.func.isRequired,
 };
 
 ParkingList.contextTypes = {

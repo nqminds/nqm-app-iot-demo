@@ -20,6 +20,7 @@ class TrafficList extends React.Component {
   }
 
   onClickTraffic(id) {
+    this.props.setSidebarDocked(false);
     this.props.clickList(id);
   }
 
@@ -57,6 +58,7 @@ class TrafficList extends React.Component {
 TrafficList.propTypes = {
   clickList: React.PropTypes.func.isRequired,
   currentTrafficID: React.PropTypes.number.isRequired,
+  setSidebarDocked: React.PropTypes.func.isRequired,
   trafficMetadata: React.PropTypes.object.isRequired,
 };
 
