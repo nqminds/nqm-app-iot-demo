@@ -42,7 +42,7 @@ class ParkingList extends React.Component {
           leftIcon={<FontIcon className="material-icons">local_parking</FontIcon>}
           primaryText={d.Street}
           secondaryText={d.BayType}
-          onClick={this.clickList.bind(this, Number(i))}
+          onClick={this.clickList.bind(this, parseInt(i))}
         />);
     });
 

@@ -9,7 +9,7 @@ import {
   SET_SCREEN_SIZE,
 } from "../actions/action-types";
 
-const defaultState = {
+const defaultParkingState = {
   parkingMetadata: {},
   currentParkingID: 0,
   activeDetail: "",
@@ -28,7 +28,7 @@ function getActiveDetail(detail) {
     return "overview";
 }
 
-export function parking(state = defaultState, action) {
+export function parking(state = defaultParkingState, action) {
   switch (action.type) {
     case SET_PARKING_METADATA:
       const parkingMetadata = {};
