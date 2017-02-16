@@ -20,7 +20,7 @@ class AirList extends React.Component {
   }
 
   onClickAir(id) {
-    this.props.setSidebarDocked(false);
+    this.props.setSidebarFloating(false);
     this.props.clickList(id);
   }
 
@@ -58,7 +58,7 @@ AirList.propTypes = {
   airMetadata: React.PropTypes.object.isRequired,
   clickList: React.PropTypes.func.isRequired,
   currentAirID: React.PropTypes.string.isRequired,
-  setSidebarDocked: React.PropTypes.func.isRequired,
+  setSidebarFloating: React.PropTypes.func.isRequired,
 };
 
 AirList.contextTypes = {

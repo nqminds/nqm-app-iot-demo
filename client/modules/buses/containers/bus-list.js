@@ -29,6 +29,7 @@ export const depsMapper = (context, actions) => ({
   clickBus: actions.bus.clickBus,
   selectBus: actions.bus.selectBus,
   setBusMetadata: actions.bus.setBusMetadata,
+  setSidebarFloating: actions.sidebar.setFloating,
 });
 
 export default dataLoader.merge(

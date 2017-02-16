@@ -25,10 +25,12 @@ class BusList extends React.Component {
   }
 
   onSelectBus(id) {
+    this.props.setSidebarFloating(false);
     this.props.selectBus(id);
   }
 
   onClickBus(id) {
+    this.props.setSidebarFloating(false);
     this.props.clickBus(id);
   }
 
@@ -84,6 +86,7 @@ BusList.propTypes = {
   data: React.PropTypes.array.isRequired,
   selectBus: React.PropTypes.func.isRequired,
   selectBusList: React.PropTypes.object.isRequired,
+  setSidebarFloating: React.PropTypes.func.isRequired,
 };
 
 BusList.contextTypes = {
