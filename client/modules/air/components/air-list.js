@@ -57,6 +57,7 @@ AirList.propTypes = {
   airMetadata: React.PropTypes.object.isRequired,
   clickList: React.PropTypes.func.isRequired,
   currentAirID: React.PropTypes.string.isRequired,
+  setSidebarFloating: React.PropTypes.func.isRequired,
 };
 
 AirList.contextTypes = {

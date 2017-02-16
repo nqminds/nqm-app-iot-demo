@@ -14,11 +14,15 @@ const styles = {
     alignItems: "flex-start",
   },
   containerWrap: {
+    margin: 8,
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
     flexFlow: "flex-start",
     alignItems: "flex-start",
+  },
+  plot: {
+    margin: 8,
   },
 };
 
@@ -73,10 +77,9 @@ class AirStats extends React.Component {
         data={lineData}
         width={this.props.screenSize.width}
         height={300}
-        margin={10}
+        margin={-1}
         yAxisLabel="Bay Occupancy"
         xAxisLabel="Local Time (hour)"
-        domain={{x: [], y: []}}
         gridHorizontal={true}
         gridVertical={true}
         interpolationType="basis"
@@ -97,7 +100,7 @@ class AirStats extends React.Component {
         <div style={styles.containerWrap}>
           {datePicker}
         </div>
-        <div>
+        <div style={styles.plot}>
           {timeSeries}
         </div>
       </div>

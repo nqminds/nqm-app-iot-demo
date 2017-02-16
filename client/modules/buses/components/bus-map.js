@@ -53,7 +53,7 @@ const BusMap = ({busMetadata, data, currentBusID, style}) => {
   const map = (
     <Map center={center} zoom={12} >
       <TileLayer
-        url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> \
         contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, \
         Imagery © <a href="http://mapbox.com">Mapbox</a>'

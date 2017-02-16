@@ -11,6 +11,7 @@ export const depsMapper = (context, actions) => ({
   Meteor: context.Meteor,
   connectionManager: context.connectionManager,
   clickList: actions.air.clickList,
+  setSidebarFloating: actions.sidebar.setFloating,
 });
 
 export default dataLoader.merge(

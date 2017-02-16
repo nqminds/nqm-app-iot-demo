@@ -14,11 +14,15 @@ const styles = {
     alignItems: "flex-start",
   },
   containerWrap: {
+    margin: 8,
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
     flexFlow: "flex-start",
     alignItems: "flex-start",
+  },
+  plot: {
+    margin: 8,
   },
 };
 
@@ -97,7 +101,7 @@ class ParkingStats extends React.Component {
         <div style={styles.containerWrap}>
           {datePicker}
         </div>
-        <div>
+        <div style={styles.plot}>
           {timeSeries}
         </div>
       </div>

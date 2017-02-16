@@ -10,7 +10,7 @@ const AirOverview = ({currentvalue, metadata}) => {
     </Tr>
   ));
   return (
-    <div style={{paddingLeft: 8}}>
+    <div style={{margin: 8}}>
       <Table className="tg">
         <Thead>
           <Th className="tg-yw4l" column="Property">
