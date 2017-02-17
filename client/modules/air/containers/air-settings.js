@@ -12,7 +12,7 @@ export const depsMapper = (context, actions) => ({
   connectionManager: context.connectionManager,
   setMoleculeType: actions.air.setMoleculeType,
   setPlotType: actions.air.setPlotType,
-  setSidebarDocked: actions.sidebar.setDocked,
+  setSidebarFloating: actions.sidebar.setFloating,
 });
 
 export default dataLoader.merge(

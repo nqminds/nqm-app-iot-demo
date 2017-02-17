@@ -11,12 +11,12 @@ class AirSettings extends React.Component {
   }
 
   handleMoleculePicker(event, index, value) {
-    this.props.setSidebarDocked(false);
+    this.props.setSidebarFloating(false);
     this.props.setMoleculeType(value);
   }
 
   handlePlotPicker(event, index, value) {
-    this.props.setSidebarDocked(false);
+    this.props.setSidebarFloating(false);
     this.props.setPlotType(value);
   }
 
@@ -60,7 +60,7 @@ AirSettings.propTypes = {
   plotType: React.PropTypes.string.isRequired,
   setMoleculeType: React.PropTypes.func.isRequired,
   setPlotType: React.PropTypes.func.isRequired,
-  setSidebarDocked: React.PropTypes.func.isRequired,
+  setSidebarFloating: React.PropTypes.func.isRequired,
 };
 
 export default AirSettings;
