@@ -20,7 +20,12 @@ const defaultState = {
   statsType: "EntryCongestionLevel",
 };
 
-// Trigger the stats view
+/**
+ * Returns the active detail of the bar
+ * @function
+ * @param {string} detail - detail type.
+ * @returns {string} The active detail type string.
+ */
 function getActiveDetail(detail) {
   detail = detail || "";
 
